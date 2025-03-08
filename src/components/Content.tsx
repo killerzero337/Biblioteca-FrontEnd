@@ -121,14 +121,14 @@ const ColeccionLibros = () => {
   };
   const eliminarLibro = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:5215/api/Libros/${id}`, {
+      const response = await fetch(`https://apidebiblioteca.onrender.com/api/Libros/${id}`, {
         method: "DELETE",
       });
-
+  
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
       }
-
+  
       // Actualiza el estado después de eliminar
       setLibros(libros.filter((libro) => libro.id !== id));
       setLibrosFiltrados(librosFiltrados.filter((libro) => libro.id !== id));

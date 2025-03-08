@@ -57,15 +57,12 @@ const TarjetaLibro = ({
 
       {/* Botones de acción */}
       <div className="flex space-x-2">
-        <button
-          className="mt-4 bg-blue-600/50 text-white cursor-not-allowed py-2 px-4 rounded-full hover:bg-blue-500"
-          
-        >
+        <button className="mt-4 bg-blue-600/50 text-white cursor-not-allowed py-2 px-4 rounded-full hover:bg-blue-500">
           Editar
         </button>
         <button
           className="mt-4 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500"
-          onClick={onEliminar}
+          onClick={() => onEliminar(id)} 
         >
           Eliminar
         </button>
