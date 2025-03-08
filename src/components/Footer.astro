@@ -1,0 +1,43 @@
+---
+import Image from "astro/components/Image.astro";
+import logoGitHub from "../assets/icons8-github.svg";
+---
+
+<footer class="bg-gray-800 text-white py-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Logotipo -->
+    <div class="flex items-center">
+      <Image
+        src="/logo.svg"
+        alt="Logotipo"
+        class="filter invert saturate-0"
+        width={100}
+        height={50}
+      />
+    </div>
+
+    <div>
+      <p class="text-sm">
+        &copy; {new Date().getFullYear()} Todos los derechos reservados.
+      </p>
+    </div>
+
+    <div class="flex space-x-4">
+      <a
+        href="https://github.com/killerzero337"
+        target="_blank"
+        class="text-white hover:text-blue-500"
+      >
+        <i class="fab fa-facebook">
+          <Image
+            src={logoGitHub}
+            alt="Logotipo"
+            class="transition duration-500 cursor-pointer hover:bg-Cyan-Theme/70 rounded-3xl"
+            width={50}
+            height={50}
+          />
+        </i>
+      </a>
+    </div>
+  </div>
+</footer>

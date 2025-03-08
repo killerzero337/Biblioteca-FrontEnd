@@ -1,0 +1,33 @@
+---
+import Image from "astro/components/Image.astro";
+import illustration from "../assets/illustration-working.svg";
+---
+
+<div
+  class="grid items-center grid-cols-1 md:grid-cols-2 p-10 md:ml-24 border-Dark-Violet"
+>
+  <div class="flex flex-col justify-center md:items-start items-center">
+    <div class="px-0 md:px-24 text-center md:text-left">
+      <h1 class="text-4xl md:text-7xl font-bold text-Dark-Violet">
+        Mas que libros, historias
+      </h1>
+
+      <p class="mt-2 text-Grayish-Violet">
+        Encuentra tus libros favoritos y descubre historias inspiradoras,
+        explorando el mundo de la lectura.
+      </p>
+
+      <div class="mt-6 md:mt-8">
+        <button
+          class="bg-Cyan-Theme transition duration-500 hover:bg-Cyan-Theme/70 cursor-pointer text-white rounded-full w-52 h-14 py-2"
+        >
+          Busque ahora
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <Image src={illustration} alt="Logo" width={800} height={300} />
+  </div>
+</div>
