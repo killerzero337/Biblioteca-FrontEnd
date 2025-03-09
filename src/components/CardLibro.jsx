@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Formulario from "./Formulario";
+import FormularioLibroEditar from "./FormularioEditar";
 
 const TarjetaLibro = ({
   id,
@@ -11,11 +11,30 @@ const TarjetaLibro = ({
   numeroPaginas,
   genero,
   imagen,
-  onEliminar, // Prop para manejar la eliminación
+  onEliminar,
+  onEditar, // Nueva prop para actualizar la lista
 }) => {
-  const [mostrarFormulario, setMostrarFormulario] = useState(false); // Estado para controlar la visibilidad del formulario
+  const [editando, setEditando] = useState(false);
 
-  const toggleFormulario = () => setMostrarFormulario(!mostrarFormulario);
+  const toggleFormulario = () => setEditando(!editando);
+  const handleGuardarCambios = async () => {
+    try {
+      const response = await fetch(`https://apidebiblioteca.onrender.com/api/Libros/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(libroEditado),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error al actualizar libro");
+      }
+  
+      const data = await response.json(); // Recibimos el libro actualizado
+      onEditar(data.libro); // Actualizamos la lista en el estado global
+    } catch (error) {
+      console.error("Error al actualizar libro:", error);
+    }
+  };
 
   return (
     <div className="bg-white shadow-lg rounded-xl p-1 flex flex-col items-center min-w-90 max-w-90 mx-auto border border-gray-300">
@@ -57,34 +76,37 @@ const TarjetaLibro = ({
 
       {/* Botones de acción */}
       <div className="flex space-x-2">
-        <button className="mt-4 bg-blue-600/50 text-white cursor-not-allowed py-2 px-4 rounded-full hover:bg-blue-500">
+        <button
+          className="mt-1 bg-blue-600 cursor-pointer text-white py-2 px-4 rounded-full hover:bg-blue-400 duration-500"
+          onClick={toggleFormulario}
+        >
           Editar
         </button>
         <button
-          className="mt-4 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500"
-          onClick={() => onEliminar(id)} 
+          className="mt-1 bg-red-600 cursor-pointer text-white py-2 px-4 rounded-full hover:bg-red-400 transition duration-500"
+          onClick={() => onEliminar(id)}
         >
           Eliminar
         </button>
       </div>
 
-      {mostrarFormulario && (
-        <div className="absolute inset-0 flex items-center justify-center z-20 p-6 bg-white shadow-lg rounded-lg max-w-lg mx-auto mt-4">
-          <FormularioLibro
-            libro={{
-              id,
-              titulo,
-              autor,
-              fechaPublicacion,
-              isbn,
-              disponible,
-              numeroPaginas,
-              genero,
-              imagen,
-            }}
-            onSubmit={() => toggleFormulario()}
-          />
-        </div>
+      {/* Mostrar formulario de edición si editando es true */}
+      {editando && (
+        <FormularioLibroEditar
+          libro={{
+            id,
+            titulo,
+            autor,
+            fechaPublicacion,
+            isbn,
+            disponible,
+            numeroPaginas,
+            genero,
+            imagen,
+          }}
+          onClose={toggleFormulario}
+          onEditSuccess={onEditar}
+        />
       )}
     </div>
   );

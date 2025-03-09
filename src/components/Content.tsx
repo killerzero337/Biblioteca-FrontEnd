@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import TarjetaLibro from "./CardLibro";
-import type { Libro } from "../lib/interfaces/Libro";
+
 import SearchBar from "./SearchBar";
+interface Libro {
+  id: number;
+  titulo: string;
+  autor: string;
+  fechaPublicacion: string;
+  isbn: string;
+  disponible: boolean;
+  numeroPaginas: number;
+  genero: string;
+  imagen: string;
+}
 
 const ColeccionLibros = () => {
   const [libros, setLibros] = useState<Libro[]>([]);
@@ -15,6 +26,21 @@ const ColeccionLibros = () => {
   const [fechaDesde, setFechaDesde] = useState<string>("");
   const [fechaHasta, setFechaHasta] = useState<string>("");
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+  const actualizarLibro = (libroActualizado: Libro) => {
+    Content();
+    setLibros((prevLibros) =>
+      prevLibros.map((l) =>
+        l.id === libroActualizado.id ? libroActualizado : l
+      )
+    );
+
+    setLibrosFiltrados((prevFiltrados) =>
+      prevFiltrados.map((l) =>
+        l.id === libroActualizado.id ? libroActualizado : l
+      )
+    );
+  };
 
   const Content = async () => {
     try {
@@ -121,14 +147,17 @@ const ColeccionLibros = () => {
   };
   const eliminarLibro = async (id: number) => {
     try {
-      const response = await fetch(`https://apidebiblioteca.onrender.com/api/Libros/${id}`, {
-        method: "DELETE",
-      });
-  
+      const response = await fetch(
+        `https://apidebiblioteca.onrender.com/api/Libros/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      Content();
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
       }
-  
+
       // Actualiza el estado después de eliminar
       setLibros(libros.filter((libro) => libro.id !== id));
       setLibrosFiltrados(librosFiltrados.filter((libro) => libro.id !== id));
@@ -186,7 +215,8 @@ const ColeccionLibros = () => {
                 numeroPaginas={libro.numeroPaginas}
                 genero={libro.genero}
                 imagen={libro.imagen}
-                onEliminar={() => eliminarLibro(libro.id!)}
+                onEliminar={() => eliminarLibro(libro.id)}
+                onEditar={actualizarLibro}
               />
             ))
           : !cargando && (
