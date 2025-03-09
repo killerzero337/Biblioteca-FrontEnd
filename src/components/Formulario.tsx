@@ -34,13 +34,16 @@ const FormularioLibro: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://apidebiblioteca.onrender.com/api/Libros", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(libro),
-      });
+      const response = await fetch(
+        "https://apidebiblioteca.onrender.com/api/Libros",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(libro),
+        }
+      );
 
       if (response.ok) {
         alert("Libro agregado con éxito");
@@ -56,7 +59,11 @@ const FormularioLibro: React.FC = () => {
   };
 
   return (
-    <form id="form-libro" onSubmit={handleSubmit}>
+    <form
+      id="form-libro"
+      onSubmit={handleSubmit}
+      className="max-h-1/3 min-h-1/3"
+    >
       <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
         Agregar Libro
       </h2>

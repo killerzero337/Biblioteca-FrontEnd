@@ -12,7 +12,7 @@ const TarjetaLibro = ({
   genero,
   imagen,
   onEliminar,
-  onEditar, // Nueva prop para actualizar la lista
+  onEditar, 
 }) => {
   const [editando, setEditando] = useState(false);
 

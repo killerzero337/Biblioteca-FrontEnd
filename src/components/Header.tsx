@@ -9,8 +9,6 @@ const Menu = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleFormulario = () => setMostrarFormulario(!mostrarFormulario);
 
-
-
   return (
     <>
       <menu className="flex justify-between md:justify-around items-center mt-5 h-30 px-6 z-10 relative">
@@ -72,14 +70,18 @@ const Menu = () => {
 
       {/* Formulario */}
       {mostrarFormulario && (
-        <div className="absolute z-20 p-6 top-100 left-1/2 transform -translate-x-1/2 w-100 -translate-y-1/2 bg-white shadow-lg rounded-lg max-w-lg mx-auto mt-4">
-          <Formulario />
-          <button
-            onClick={toggleFormulario}
-            className="absolute cursor-pointer top-0 right-0 bg-red-500 text-white py-2 px-4 rounded"
-          >
-            X
-          </button>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="relative bg-white rounded-lg shadow-md p-4 w-full max-w-sm max-h-[80vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white z-10 flex justify-end">
+              <button
+                onClick={toggleFormulario}
+                className="bg-red-500 text-white align-middle cursor-pointer w-8 h-8 flex items-center justify-center rounded-full text-lg"
+              >
+                ✕
+              </button>
+            </div>
+            <Formulario />
+          </div>
         </div>
       )}
     </>

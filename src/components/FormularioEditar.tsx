@@ -33,8 +33,6 @@ const FormularioLibroEditar: React.FC<Props> = ({
     });
   };
 
-  
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -64,7 +62,13 @@ const FormularioLibroEditar: React.FC<Props> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-white rounded-lg shadow-md">
+    <div>
+    <form
+      onSubmit={handleSubmit}
+      className="fixed inset-0 bg-black/50 bg-opacity-50 flex flex-col overflow-y-auto items-center justify-center p-4 z-50"
+    >
+        <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md transform transition-transform duration-300">
+
       <h2 className="text-2xl font-bold mb-4">Editar Libro</h2>
 
       <input
@@ -132,19 +136,21 @@ const FormularioLibroEditar: React.FC<Props> = ({
       <div className="flex mt-4">
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded mr-2"
+          className="bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 transition duration-500 cursor-pointer rounded mr-2"
         >
           Guardar cambios
         </button>
         <button
           type="button"
           onClick={onClose}
-          className="bg-gray-500 text-white px-4 py-2 rounded"
+          className="bg-gray-500 text-white px-4 cursor-pointer hover:bg-gray-600 transition duration-500 py-2 rounded"
         >
           Cancelar
         </button>
       </div>
+      </div>
     </form>
+    </div>
   );
 };
 
