@@ -11,35 +11,39 @@ const Menu = () => {
 
   return (
     <>
-      <menu className="flex justify-between md:justify-around items-center mt-5 h-30 px-6 z-10 relative">
+      <menu className="fixed-header flex justify-between md:justify-around items-center mt-5 h-30 px-6 z-10 relative">
         <div className="flex items-center">
-          <a href="http://">
+          <a href="/">
             <img src="/logo.svg" alt="Logotipo" />
           </a>
         </div>
 
-        {/* Menú principal en pantallas grandes */}
         <div className="hidden md:flex flex-1 justify-around">
           <ul className="flex gap-5">
             <li>
-              <a href="http://" className="hover:text-Cyan-Theme">
+              <a
+                href="posts/sobre-el-proyecto"
+                className="hover:text-Cyan-Theme"
+              >
                 Sobre el proyecto
               </a>
             </li>
             <li>
-              <a href="http://" className="hover:text-Cyan-Theme">
+              <a
+                href="posts/tecnologias-usadas"
+                className="hover:text-Cyan-Theme"
+              >
                 Tecnologías utilizadas
               </a>
             </li>
             <li>
-              <a href="http://" className="hover:text-Cyan-Theme">
+              <a href="/api-rest" className="hover:text-Cyan-Theme">
                 ¿Qué es una API?
               </a>
             </li>
           </ul>
         </div>
 
-        {/* Menú hamburguesa en pantallas pequeñas */}
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}

@@ -15,7 +15,7 @@ const HamburgerMenu = ({ isOpen, toggleMenu }) => {
           <a href="http://">Tecnologías utilizadas</a>
         </li>
         <li>
-          <a href="http://">¿Qué es una API?</a>
+          <a href="/api-rest">¿Qué es una API?</a>
         </li>
       </ul>
 

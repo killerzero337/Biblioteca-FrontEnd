@@ -1,0 +1,293 @@
+---
+import LayoutContent from "../layouts/LayoutContent.astro";
+title: "Introducción a API REST";
+description: "Explicación detallada sobre qué es una API REST y sus beneficios.";
+---
+
+<LayoutContent>
+  <section class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <h1
+      class="text-4xl font-extrabold text-blue-600 border-b-4 border-blue-400 pb-2"
+    >
+      📌 ¿Qué es una API REST?
+    </h1>
+    <p class="mt-4 text-gray-700 text-lg">
+      Una <strong>API REST</strong> (Representational State Transfer) es una interfaz
+      de comunicación entre sistemas basada en el protocolo HTTP.
+    </p>
+
+    <h2 class="text-2xl font-semibold text-blue-500 mt-6">
+      🛠️ Partes de una API REST
+    </h2>
+    <ul class="list-disc pl-6 mt-2 text-gray-700">
+      <li>
+        <strong>🖥️ Cliente:</strong> La aplicación que consume la API (Ejemplo: Astro
+        App).
+      </li>
+      <li><strong>🌐 Servidor:</strong> Procesa las solicitudes y responde.</li>
+      <li><strong>🗂️ Recursos:</strong> Datos como libros y usuarios.</li>
+      <li>
+        <strong>🔗 Endpoints:</strong> Rutas como <code
+          class="bg-gray-200 px-2 py-1 rounded text-sm">/api/Libros</code
+        >.
+      </li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-blue-500 mt-6">📩 Métodos HTTP</h3>
+    <div class="grid grid-cols-2 gap-4 mt-2">
+      <div
+        class="bg-blue-100 p-3 rounded-lg shadow-md text-blue-700 font-semibold"
+      >
+        GET: Obtener datos 📥
+      </div>
+      <div
+        class="bg-green-100 p-3 rounded-lg shadow-md text-green-700 font-semibold"
+      >
+        POST: Crear recursos 🆕
+      </div>
+      <div
+        class="bg-yellow-100 p-3 rounded-lg shadow-md text-yellow-700 font-semibold"
+      >
+        PUT: Actualizar recursos 🔄
+      </div>
+      <div
+        class="bg-red-100 p-3 rounded-lg shadow-md text-red-700 font-semibold"
+      >
+        DELETE: Eliminar recursos 🗑️
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold text-blue-500 mt-8">
+      🎯 Características
+    </h2>
+    <ul class="list-disc pl-6 mt-2 text-gray-700">
+      <li>✔️ Stateless (sin estado).</li>
+      <li>✔️ URLs claras y semánticas.</li>
+      <li>✔️ Devuelve JSON como formato estándar.</li>
+      <li>
+        ✔️ Usa códigos de estado HTTP (<code
+          class="bg-gray-200 px-2 py-1 rounded text-sm">200</code
+        >, <code class="bg-gray-200 px-2 py-1 rounded text-sm">404</code>, <code
+          class="bg-gray-200 px-2 py-1 rounded text-sm">500</code
+        >...).
+      </li>
+    </ul>
+
+    <h1
+      class="text-4xl font-extrabold text-blue-600 border-b-4 border-blue-400 pb-2 mt-10"
+    >
+      🚀 Ventajas de usar una API REST
+    </h1>
+
+    <div class="overflow-x-auto mt-4">
+      <table
+        class="table-auto w-full border-collapse border border-gray-300 shadow-md"
+      >
+        <thead>
+          <tr class="bg-blue-500 text-white">
+            <th class="border border-gray-300 px-4 py-2 text-left"
+              >🌍 Característica</th
+            >
+            <th class="border border-gray-300 px-4 py-2 text-center"
+              >✅ API REST</th
+            >
+            <th class="border border-gray-300 px-4 py-2 text-center"
+              >❌ Acceso directo a BD</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-100">
+            <td class="border border-gray-300 px-4 py-2"
+              >📌 Separación Cliente-Servidor</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Sí</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ No</td
+            >
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">📈 Escalabilidad</td>
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Alta</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ Baja</td
+            >
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="border border-gray-300 px-4 py-2">🔒 Seguridad</td>
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ JWT & HTTPS</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ Vulnerable a SQL Injection</td
+            >
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">🔄 Eficiencia</td>
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Caché y optimización</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ Consultas pesadas</td
+            >
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="border border-gray-300 px-4 py-2"
+              >🤝 Interoperabilidad</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Funciona con cualquier lenguaje</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ Depende del stack</td
+            >
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-6 text-lg font-semibold text-blue-600">
+      🔥 Conclusión: Usar una API REST mejora la seguridad y la escalabilidad
+      del sistema.
+    </p>
+  </section>
+
+  <section class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <h1
+      class="text-4xl font-extrabold text-blue-600 border-b-4 border-blue-400 pb-2"
+    >
+      🌐 Justificación del SGBD: Neon.tech
+    </h1>
+
+    <p class="mt-4 text-gray-700 text-lg">
+      Para nuestra API REST, se ha elegido <strong>Neon.tech</strong> como servicio
+      de base de datos basado en "PostgreSQL" en la nube.
+    </p>
+
+    <h2 class="text-2xl font-semibold text-blue-500 mt-6">
+      🚀 ¿Por qué Neon.tech?
+    </h2>
+    <p class="mt-2 text-gray-700">
+      Neon.tech ofrece todas las ventajas de PostgreSQL con mejoras
+      significativas en "escalabilidad, costos y despliegue en la nube".
+    </p>
+
+    <h2 class="text-2xl font-semibold text-blue-500 mt-6">
+      🔑 Características principales
+    </h2>
+    <ul class="list-disc pl-6 mt-2 text-gray-700">
+      <li>
+        <strong>🌍 Totalmente en la nube:</strong> No requiere instalación local.
+      </li>
+      <li>
+        <strong>📈 Autoescalado:</strong> Ajusta los recursos según la demanda.
+      </li>
+      <li>
+        <strong>💰 Modelo Free-Tier:</strong> Plan gratuito ideal para desarrollo.
+      </li>
+      <li>
+        <strong>⚡ Almacenamiento basado en RAM:</strong> Mayor velocidad en consultas.
+      </li>
+      <li>
+        <strong>🔄 Snapshots y branching:</strong> Permite crear clones rápidos de
+        la base de datos.
+      </li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold text-blue-500 mt-6">
+      🎯 Comparación con otras opciones
+    </h2>
+    <div class="overflow-x-auto mt-4">
+      <table
+        class="table-auto w-full border-collapse border border-gray-300 shadow-md"
+      >
+        <thead>
+          <tr class="bg-blue-500 text-white">
+            <th class="border border-gray-300 px-4 py-2 text-left"
+              >💾 Característica</th
+            >
+            <th class="border border-gray-300 px-4 py-2 text-center"
+              >✅ Neon.tech</th
+            >
+            <th class="border border-gray-300 px-4 py-2 text-center"
+              >⚡ Supabase</th
+            >
+            <th class="border border-gray-300 px-4 py-2 text-center"
+              >☁️ Railway</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-100">
+            <td class="border border-gray-300 px-4 py-2">Autoescalado</td>
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Sí</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-yellow-600 font-bold"
+              >⚠️ Parcial</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ No</td
+            >
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2"
+              >Rendimiento optimizado</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Alto</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-yellow-600 font-bold"
+              >⚠️ Medio</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-yellow-600 font-bold"
+              >⚠️ Medio</td
+            >
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="border border-gray-300 px-4 py-2">Plan gratuito</td>
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Sí</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-green-600 font-bold"
+              >✅ Sí</td
+            >
+            <td
+              class="border border-gray-300 px-4 py-2 text-center text-red-600 font-bold"
+              >❌ No</td
+            >
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-2xl font-semibold text-blue-500 mt-6">🔍 Conclusión</h2>
+    <p class="mt-2 text-gray-700">
+      Neon.tech es la mejor opción para nuestra API debido a su "modelo
+      serverless, escalabilidad automática y compatibilidad con PostgreSQL",
+      además de ofrecer un entorno gratuito ideal para desarrollo.
+    </p>
+  </section>
+</LayoutContent>
